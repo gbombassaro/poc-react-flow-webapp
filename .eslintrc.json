@@ -1,0 +1,58 @@
+{
+  "env": {
+    "node": true
+  },
+  "root": true,
+  "extends": [
+    "eslint:recommended",
+    "plugin:@typescript-eslint/recommended"
+  ],
+  "plugins": [
+    "@typescript-eslint",
+    "eslint-plugin-import-helpers",
+    "react"
+  ],
+  "rules": {
+    "array-element-newline": ["warn", "consistent"],
+    "arrow-parens": ["warn", "always"],
+    "arrow-spacing": ["warn", { "before": true, "after": true }],
+    "block-spacing": ["warn", "always"],
+    "brace-style": ["error", "1tbs", { "allowSingleLine": true }],
+    "comma-dangle": ["warn", "only-multiline"],
+    "comma-spacing": ["warn", { "before": false, "after": true }],
+    "func-call-spacing": ["error", "never"],
+    "function-call-argument-newline": ["error", "never"],
+    "implicit-arrow-linebreak": ["warn", "beside"],
+    "import-helpers/order-imports": ["warn", { "newlinesBetween": "always", "groups": ["absolute", "module", ["parent", "sibling", "index", "type"]], "alphabetize": { "order": "asc", "ignoreCase": true }}],
+    "indent": ["error", 2],
+    "no-empty-pattern": ["off"],
+    "jsx-quotes": ["error", "prefer-single"],
+    "key-spacing": ["error", { "afterColon": true }],
+    "keyword-spacing": ["error", { "before": true }],
+    "no-multi-spaces": "error",
+    "no-trailing-spaces": "warn",
+    "no-whitespace-before-property": "error",
+    "object-curly-spacing": ["error", "always"],
+    "quotes": ["error", "single"],
+    "rest-spread-spacing": ["error", "never"],
+    "semi": ["error", "never"],
+    "switch-colon-spacing": ["error", { "after": false, "before": true }],
+    "prefer-const": "error",
+
+    // eslint-react-options
+    "react/jsx-closing-bracket-location": ["warn", "tag-aligned"],
+    "react/jsx-closing-tag-location": ["warn"],
+    "react/jsx-curly-newline": ["warn", { "singleline": "consistent", "multiline": "consistent" }],
+    "react/jsx-curly-spacing": ["warn", { "when": "never", "children": true }],
+    "react/jsx-equals-spacing": ["warn", "never"],
+    "react/jsx-first-prop-new-line": ["warn", "multiline"],
+    "react/jsx-no-duplicate-props": ["warn"],
+    "react/jsx-props-no-multi-spaces": ["warn"],
+
+    // @typescript-eslint
+    "@typescript-eslint/no-explicit-any": ["off"],
+    "@typescript-eslint/no-empty-interface": ["off"],
+    "@typescript-eslint/ban-types": ["warn"],
+    "no-prototype-builtins": ["off"]
+  }
+}
