@@ -11,69 +11,48 @@
 // End -> End the flow
 
 export type Node = {
-  id: string;
-  name: string;
-  position: { x: number; y: number; };
-  type: 'trigger' | 'condition' | 'action' | 'end';
-}
-
-export type NodeEnd = Node & {
-  type: 'end';
-}
-
-export type NodeTrigger = Node & {
-  type: 'trigger';
-  form: { triggers: Array<any>; selected: string; };
-}
-
-export type NodeCondition = Node & {
-  type: 'condition';
-  form: { conditions: Array<any>; selected: string; };
+    id: string;
+    position: { x: number; y: number; };
+    type: 'trigger' | 'condition' | 'action' | 'end';
+    data: {
+        name: string;
+        description: string;
+        form?: {
+            triggers?: Array<any>;
+            conditions?: Array<any>;
+            actions?: Array<any>;
+            selected?: string;
+        };
+    };
 }
 
 export type NodeAction = Node & {
-  type: 'action';
-  form: { actions: Array<any>; selected: string; };
+    type: 'action';
+    data: {
+        name: string;
+        description: string;
+        form: { actions: Array<any>; selected: string; };
+    };
 }
 
-export type InitialNodes = Array<NodeTrigger | NodeCondition | NodeAction | NodeEnd>;
+export type NodeCondition = Node & {
+    type: 'condition';
+    data: {
+        name: string;
+        description: string;
+        form: { conditions: Array<any>; selected: string; };
+    };
+}
 
-export type InitialEdges = Array<any>;
+export type NodeTrigger = Node & {
+    type: 'trigger';
+    data: {
+        name: string;
+        description: string;
+        form: { triggers: Array<any>; selected: string; };
+    };
+}
 
-export const initialNodes: InitialNodes = [
-  {
-    id: 'node-0',
-    name: 'End',
-    position: { x: 0, y: 120 },
-    type: 'end',
-  },
-  {
-    id: 'node-1',
-    name: 'Trigger',
-    position: { x: 0, y: 0 },
-    type: 'trigger',
-    form: { triggers: ['subscribe newsletter', 'first purchase', 'purchase'], selected: 'subscribe newsletter' },
-  },
-  {
-    id: 'node-2',
-    name: 'Condition',
-    position: { x: 0, y: 220 },
-    type: 'condition',
-    form: { conditions: ['segmentation', 'split segmentation', 'time'], selected: 'segmentation' },
-  },
-  {
-    id: 'node-3',
-    name: 'Action',
-    position: { x: 0, y: 320 },
-    type: 'action',
-    form: { actions: ['send email', 'send message'], selected: 'send email' },
-  },
-]
-
-export const initialEdges = [
-  // {
-  //   id: 'e0-1',
-  //   source: 'node-0',
-  //   target: 'node-1'
-  // }
-]
+export type NodeEnd = Node & {
+    type: 'end';
+}
